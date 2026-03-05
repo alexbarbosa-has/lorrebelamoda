@@ -6,331 +6,289 @@
   <title>Lore Bella Modas • Infantil</title>
   <style>
     :root{
-      --pink:#ff5aa5;
-      --pink-2:#ffd0e6;
-      --blue:#2b7bff;
-      --blue-2:#d7e7ff;
-      --ink:#1f2a37;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --bg:#f7f9ff;
-      --shadow: 0 10px 30px rgba(16,24,40,.10);
-      --radius: 18px;
-      --radius2: 14px;
+      --pink:#ff4fa3; --pink2:#ffd1e6;
+      --blue:#2b7bff; --blue2:#d7e7ff;
+      --ink:#0f172a; --muted:#64748b;
+      --bg:#f7f9ff; --card:#ffffff;
+      --shadow: 0 12px 30px rgba(15,23,42,.10);
+      --r:18px; --r2:14px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 10% 0%, var(--pink-2), transparent 55%),
-                  radial-gradient(1200px 700px at 90% 10%, var(--blue-2), transparent 60%),
-                  var(--bg);
       color:var(--ink);
+      background:
+        radial-gradient(1100px 700px at 12% 0%, var(--pink2), transparent 55%),
+        radial-gradient(1100px 700px at 88% 8%, var(--blue2), transparent 58%),
+        var(--bg);
     }
-
-    a{color:inherit}
-    .container{max-width:1100px; margin:0 auto; padding:20px;}
-
-    /* Header */
     header{
-      position:sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(247,249,255,.72);
-      border-bottom: 1px solid rgba(43,123,255,.12);
+      background: rgba(247,249,255,.75);
+      border-bottom:1px solid rgba(43,123,255,.12);
     }
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:14px 20px;
-      max-width:1100px; margin:0 auto;
+    .wrap{max-width:1100px;margin:0 auto;padding:18px}
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 18px; max-width:1100px; margin:0 auto;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-    }
+    .brand{display:flex; align-items:center; gap:12px}
     .logo{
-      width:42px; height:42px; border-radius:14px;
+      width:44px; height:44px; border-radius:16px;
       background: linear-gradient(135deg, var(--pink), var(--blue));
       box-shadow: var(--shadow);
     }
-    .brand h1{
-      font-size:18px; line-height:1.1; margin:0;
-      letter-spacing:.2px;
-    }
-    .brand small{display:block; color:var(--muted); font-weight:600; margin-top:2px}
-
-    .actions{display:flex; gap:10px; align-items:center;}
+    .brand h1{margin:0; font-size:18px; letter-spacing:.2px}
+    .brand small{display:block; margin-top:2px; color:var(--muted); font-weight:700}
     .btn{
       border:0; cursor:pointer;
       padding:10px 14px; border-radius:999px;
-      font-weight:700; letter-spacing:.2px;
-      background: #fff; box-shadow: 0 6px 18px rgba(16,24,40,.08);
-      transition: transform .06s ease, box-shadow .2s ease;
+      font-weight:900; letter-spacing:.2px;
+      background:#fff;
+      border:1px solid rgba(15,23,42,.10);
+      box-shadow: 0 8px 18px rgba(15,23,42,.08);
     }
-    .btn:active{transform: translateY(1px)}
     .btn.primary{
+      color:#fff;
       background: linear-gradient(135deg, var(--pink), var(--blue));
-      color:white;
-      box-shadow: 0 10px 24px rgba(43,123,255,.18);
+      border:0;
+      box-shadow: 0 12px 24px rgba(43,123,255,.18);
     }
-    .btn.danger{
-      background:#fff0f5;
-      color:#b42318;
-      border:1px solid rgba(180,35,24,.22);
-      box-shadow:none;
-    }
+    .btn.ghost{background:transparent; box-shadow:none}
+    .btn.danger{background:#fff0f5; color:#b42318; border:1px solid rgba(180,35,24,.25); box-shadow:none}
 
-    /* Hero */
     .hero{
-      display:grid; grid-template-columns: 1.15fr .85fr;
-      gap:18px; margin-top:18px;
+      display:grid; grid-template-columns: 1.2fr .8fr;
+      gap:14px; margin-top:18px;
     }
-    @media (max-width: 900px){ .hero{grid-template-columns: 1fr; } }
-
-    .heroCard{
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(43,123,255,.10);
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding:18px;
+      overflow:hidden;
     }
-    .heroTitle{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+    .heroA{padding:18px}
+    .heroA h2{margin:0; font-size:30px; letter-spacing:.2px}
+    .gradText{
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .heroTitle h2{
-      margin:0;
-      font-size:28px;
-      letter-spacing:.2px;
+    .heroA p{margin:10px 0 0; color:var(--muted); font-weight:650; line-height:1.55}
+    .row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .input{
+      flex:1; min-width:220px;
+      padding:12px 14px; border-radius:999px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff; outline:none;
+      font-weight:800;
     }
-    .pill{
+
+    .heroB{padding:18px; display:flex; flex-direction:column; gap:12px}
+    .badge{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px; border-radius:999px;
-      background: linear-gradient(135deg, rgba(255,90,165,.15), rgba(43,123,255,.15));
-      border:1px solid rgba(43,123,255,.12);
-      font-weight:800; color:#334155;
-      white-space:nowrap;
+      background: linear-gradient(135deg, rgba(255,79,163,.14), rgba(43,123,255,.14));
+      border:1px solid rgba(43,123,255,.14);
+      font-weight:900; color:#334155;
+      width: fit-content;
     }
-    .heroCard p{color:var(--muted); font-weight:600; margin:10px 0 0; line-height:1.55}
-
-    .searchRow{
-      margin-top:14px;
+    .mini{
+      padding:14px; border-radius: var(--r2);
+      background: rgba(255,255,255,.82);
+      border:1px dashed rgba(43,123,255,.20);
+      color:#334155; font-weight:800;
+    }
+    .mini small{display:block; color:var(--muted); font-weight:700; margin-top:6px}
+    .filters{
       display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:8px;
     }
-    .input{
-      flex:1;
-      min-width: 240px;
-      border-radius: 999px;
-      border:1px solid rgba(31,42,55,.12);
+    .chip{
+      padding:10px 12px; border-radius:999px;
       background:#fff;
-      padding:12px 14px;
-      outline:none;
-      font-weight:700;
+      border:1px solid rgba(15,23,42,.10);
+      font-weight:900; cursor:pointer;
     }
-    .hint{
-      font-size:12px; color:var(--muted); margin-top:8px; font-weight:600;
-    }
-
-    .sideCard{
-      background: rgba(255,255,255,.78);
-      border:1px solid rgba(255,90,165,.12);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding:18px;
-      display:flex; flex-direction:column; justify-content:space-between;
-      min-height: 220px;
-    }
-    .sideCard h3{margin:0; font-size:18px}
-    .sideCard p{margin:10px 0 0; color:var(--muted); font-weight:600; line-height:1.55}
-    .gradientBox{
-      margin-top:14px;
-      border-radius: var(--radius2);
-      padding:14px;
-      background: linear-gradient(135deg, rgba(255,90,165,.16), rgba(43,123,255,.16));
-      border:1px dashed rgba(43,123,255,.18);
-      font-weight:800;
-      color:#334155;
+    .chip.active{
+      background: linear-gradient(135deg, rgba(255,79,163,.16), rgba(43,123,255,.16));
+      border:1px solid rgba(43,123,255,.18);
     }
 
-    /* Grid products */
-    .sectionTitle{
+    .sectionTop{
       margin:22px 0 10px;
       display:flex; align-items:center; justify-content:space-between; gap:10px;
     }
-    .sectionTitle h3{margin:0; font-size:18px}
-    .count{color:var(--muted); font-weight:800}
+    .sectionTop h3{margin:0; font-size:18px}
+    .count{color:var(--muted); font-weight:900}
 
     .grid{
-      display:grid;
+      display:grid; gap:14px;
       grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
     @media (max-width: 1050px){ .grid{grid-template-columns: repeat(3, 1fr);} }
     @media (max-width: 780px){ .grid{grid-template-columns: repeat(2, 1fr);} }
     @media (max-width: 480px){ .grid{grid-template-columns: 1fr;} }
 
-    .card{
-      background: rgba(255,255,255,.85);
-      border:1px solid rgba(31,42,55,.08);
-      box-shadow: 0 10px 26px rgba(16,24,40,.08);
-      border-radius: var(--radius);
+    .pCard{
+      background: rgba(255,255,255,.88);
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: var(--r);
+      box-shadow: 0 10px 24px rgba(15,23,42,.08);
       overflow:hidden;
       display:flex; flex-direction:column;
-      min-height: 320px;
+      min-height: 340px;
     }
-    .thumb{
-      width:100%; height:170px;
-      background: linear-gradient(135deg, rgba(255,90,165,.20), rgba(43,123,255,.20));
-      position:relative;
-    }
-    .thumb img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .thumb .tag{
+    .thumb{height:175px; background: linear-gradient(135deg, rgba(255,79,163,.18), rgba(43,123,255,.18)); position:relative}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+    .tag{
       position:absolute; left:12px; top:12px;
+      padding:6px 10px; border-radius:999px;
       background: rgba(255,255,255,.92);
       border:1px solid rgba(43,123,255,.14);
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:12px;
+      font-weight:950; font-size:12px;
     }
-    .cardBody{padding:14px 14px 12px; display:flex; flex-direction:column; gap:10px; flex:1}
-    .name{font-weight:950; letter-spacing:.2px; margin:0; font-size:15px}
-    .desc{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.4}
+    .tag.offer{left:auto; right:12px; background: rgba(255,79,163,.12); border:1px solid rgba(255,79,163,.25)}
+    .pBody{padding:14px; display:flex; flex-direction:column; gap:10px; flex:1}
+    .name{margin:0; font-weight:950; letter-spacing:.2px; font-size:15px}
+    .desc{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.45}
     .priceRow{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto}
     .price{
       font-size:18px; font-weight:950;
       background: linear-gradient(135deg, var(--pink), var(--blue));
-      -webkit-background-clip:text; background-clip:text;
-      color:transparent;
-      letter-spacing:.2px;
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
     .smallBtn{
       border:0; cursor:pointer;
-      padding:9px 10px;
-      border-radius:999px;
-      font-weight:900;
+      padding:9px 10px; border-radius:999px;
+      font-weight:950;
       background:#fff;
-      border:1px solid rgba(31,42,55,.10);
+      border:1px solid rgba(15,23,42,.10);
     }
 
     /* Modal */
-    .overlay{
-      position:fixed; inset:0;
-      background: rgba(15,23,42,.55);
-      display:none;
-      align-items:center; justify-content:center;
-      padding:18px;
-      z-index:100;
-    }
+    .overlay{position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:18px; background: rgba(15,23,42,.56); z-index:100}
     .modal{
-      width:min(720px, 100%);
-      background:rgba(255,255,255,.95);
+      width:min(760px, 100%);
+      background: rgba(255,255,255,.96);
       border:1px solid rgba(43,123,255,.14);
-      box-shadow: var(--shadow);
       border-radius: 22px;
+      box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .modalHeader{
+    .mHead{
       padding:14px 16px;
       display:flex; align-items:center; justify-content:space-between; gap:10px;
-      background: linear-gradient(135deg, rgba(255,90,165,.12), rgba(43,123,255,.12));
-      border-bottom:1px solid rgba(31,42,55,.08);
+      background: linear-gradient(135deg, rgba(255,79,163,.12), rgba(43,123,255,.12));
+      border-bottom:1px solid rgba(15,23,42,.08);
     }
-    .modalHeader strong{font-size:14px}
-    .modalBody{padding:16px}
-    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    @media (max-width: 720px){ .row{grid-template-columns:1fr} }
-    .field label{display:block; font-weight:900; font-size:12px; color:#374151; margin:0 0 6px}
-    .field input, .field textarea{
-      width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(31,42,55,.12);
-      background:#fff;
-      padding:12px 12px;
-      outline:none;
-      font-weight:750;
-      resize:vertical;
-    }
-    .field textarea{min-height: 84px; font-weight:650}
-    .modalFooter{
+    .mHead strong{font-size:14px}
+    .mBody{padding:16px}
+    .mFoot{
       padding:14px 16px;
       display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap;
-      border-top:1px solid rgba(31,42,55,.08);
-      background: rgba(255,255,255,.88);
+      border-top:1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.90);
     }
-    .note{
-      font-size:12px; color:var(--muted); font-weight:700; margin:10px 0 0;
+    .formRow{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 720px){ .formRow{grid-template-columns:1fr} }
+    .field label{display:block; margin:0 0 6px; font-weight:950; font-size:12px; color:#334155}
+    .field input,.field textarea{
+      width:100%; padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(15,23,42,.12);
+      background:#fff; outline:none;
+      font-weight:800;
+      resize:vertical;
+    }
+    .field textarea{min-height:90px; font-weight:650}
+    .note{margin-top:10px; color:var(--muted); font-size:12px; font-weight:750}
+
+    footer{
+      border-top:1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.55);
+    }
+    .foot{
+      max-width:1100px; margin:0 auto; padding:18px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      color:var(--muted); font-weight:700;
     }
 
-    /* Login mini */
-    .loginRow{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:12px; margin-top:10px;
-    }
-    @media (max-width: 560px){ .loginRow{grid-template-columns:1fr} }
-    .status{
-      font-size:12px; font-weight:900; color:#0f766e; margin-top:8px;
-      display:none;
+    /* WhatsApp floating */
+    .wa{
+      position:fixed; right:16px; bottom:16px; z-index:120;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px; border-radius:999px;
+      background:#fff;
+      border:1px solid rgba(15,23,42,.10);
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      font-weight:950;
     }
   </style>
 </head>
-
 <body>
 <header>
-  <div class="topbar">
+  <div class="top">
     <div class="brand">
       <div class="logo" aria-hidden="true"></div>
       <div>
         <h1>Lore Bella Modas</h1>
-        <small>Roupas infantis • Rosa & Azul</small>
+        <small>Roupas infantis • rosa & azul</small>
       </div>
     </div>
-    <div class="actions">
+    <div style="display:flex; gap:10px; align-items:center;">
       <button class="btn" id="btnAdmin">Área ADM</button>
-      <button class="btn primary" id="btnAdd" title="Adicionar produto" style="display:none;">+ Produto</button>
+      <button class="btn primary" id="btnAdd" style="display:none;">+ Produto</button>
       <button class="btn danger" id="btnLogout" style="display:none;">Sair</button>
     </div>
   </div>
 </header>
 
-<main class="container">
+<main class="wrap">
   <section class="hero">
-    <div class="heroCard">
-      <div class="heroTitle">
-        <div>
-          <h2>Novidades fofas pra <span style="background:linear-gradient(135deg,var(--pink),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;">crianças</span></h2>
-          <p>Catálogo simples e bonito, com gerenciamento de produtos e preços na área ADM.</p>
-        </div>
-        <div class="pill">✨ Loja Infantil</div>
+    <div class="card heroA">
+      <h2>Loja infantil <span class="gradText">fofa</span> e pronta pra vender</h2>
+      <p>Catálogo com filtro por categoria + botão de compra no WhatsApp. Na ADM você edita preço, fotos e produtos.</p>
+      <div class="row">
+        <input class="input" id="search" placeholder="Buscar (ex: vestido, conjunto, bebê)..." />
+        <button class="btn" id="btnClear">Limpar</button>
+        <button class="btn primary" id="btnAll">Ver tudo</button>
       </div>
 
-      <div class="searchRow">
-        <input class="input" id="search" placeholder="Buscar produto (ex: vestido, conjunto, macacão)..." />
-        <button class="btn" id="btnReset">Limpar</button>
+      <div class="filters" style="margin-top:12px;">
+        <button class="chip active" data-cat="Todos">Todos</button>
+        <button class="chip" data-cat="Menina">Menina</button>
+        <button class="chip" data-cat="Menino">Menino</button>
+        <button class="chip" data-cat="Bebê">Bebê</button>
+        <button class="chip" data-cat="Acessórios">Acessórios</button>
       </div>
-      <div class="hint">Dica: na ADM você consegue alterar preços e trocar/colocar fotos (por link).</div>
+
+      <div class="note">Dica: para vender, coloque seu número do WhatsApp no código (procure por <b>WHATSAPP_PHONE</b>).</div>
     </div>
 
-    <div class="sideCard">
-      <div>
-        <h3>📦 Como colocar fotos?</h3>
-        <p>Use um link direto de imagem (ex: termina com <b>.jpg</b>, <b>.png</b> ou <b>.webp</b>). Pode ser de um drive/host de imagens.</p>
+    <div class="card heroB">
+      <div class="badge">✨ Promoções e lançamentos</div>
+      <div class="mini">
+        Atendimento via WhatsApp
+        <small>Clique em “Comprar” em qualquer produto.</small>
       </div>
-      <div class="gradientBox">
-        <div>ADM padrão:</div>
-        <div style="margin-top:8px; font-weight:950;">
-          Usuário: <code>admin</code><br/>
-          Senha: <code>1234</code>
-        </div>
-        <div class="note">Você pode mudar isso no código (procure por <b>ADMIN_USER</b> e <b>ADMIN_PASS</b>).</div>
+      <div class="mini">
+        Entrega e retirada
+        <small>Você pode editar isso depois (rodapé).</small>
+      </div>
+      <div class="mini">
+        ADM padrão
+        <small>Usuário: <b>admin</b> • Senha: <b>1234</b></small>
       </div>
     </div>
   </section>
 
-  <div class="sectionTitle">
+  <div class="sectionTop">
     <h3>Catálogo</h3>
     <div class="count" id="count">0 itens</div>
   </div>
@@ -338,71 +296,56 @@
   <section class="grid" id="grid"></section>
 </main>
 
+<footer>
+  <div class="foot">
+    <div>© <span id="year"></span> Lore Bella Modas</div>
+    <div>📦 Entregas sob consulta • 💬 Atendimento WhatsApp</div>
+  </div>
+</footer>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener">💚 WhatsApp</a>
+
 <!-- MODAL -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true">
   <div class="modal">
-    <div class="modalHeader">
-      <strong id="modalTitle">Área ADM</strong>
-      <button class="btn" id="btnClose">Fechar</button>
+    <div class="mHead">
+      <strong id="mTitle">Modal</strong>
+      <button class="btn" id="mClose">Fechar</button>
     </div>
-
-    <div class="modalBody" id="modalBody"></div>
-
-    <div class="modalFooter" id="modalFooter"></div>
+    <div class="mBody" id="mBody"></div>
+    <div class="mFoot" id="mFoot"></div>
   </div>
 </div>
 
 <script>
-  // =========================
-  // CONFIG: LOGIN ADM
-  // =========================
+  // ========= CONFIG =========
   const ADMIN_USER = "admin";
   const ADMIN_PASS = "1234";
 
-  // =========================
-  // STORAGE KEYS
-  // =========================
-  const LS_PRODUCTS = "lorebella_products_v1";
-  const LS_SESSION  = "lorebella_admin_logged_v1";
+  // Coloque seu número com DDI + DDD (ex: 5511999999999)
+  const WHATSAPP_PHONE = "5511999999999";
 
-  // =========================
-  // DEFAULT PRODUCTS
-  // =========================
+  const LS_PRODUCTS = "lorebella_products_v2";
+  const LS_SESSION  = "lorebella_admin_logged_v2";
+
+  const brl = (n)=> n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+  const esc = (s)=> String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+  const uuid = ()=> (crypto?.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random());
+
   const defaultProducts = [
-    {
-      id: crypto.randomUUID(),
-      name: "Conjunto Infantil (2 peças)",
-      price: 89.90,
-      image: "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1200&q=80",
-      desc: "Confortável e estiloso para o dia a dia."
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Vestido Infantil Floral",
-      price: 79.90,
-      image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
-      desc: "Leve, lindo e perfeito para passeios."
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Macacão Bebê",
-      price: 69.90,
-      image: "https://images.unsplash.com/photo-1519682577862-22b62b24e493?auto=format&fit=crop&w=1200&q=80",
-      desc: "Toque macio, ideal para recém-nascidos."
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "Camiseta Infantil Básica",
-      price: 39.90,
-      image: "https://images.unsplash.com/photo-1520975681186-3a7f0a0d6f45?auto=format&fit=crop&w=1200&q=80",
-      desc: "Básica, versátil e resistente."
-    }
+    { id: uuid(), name:"Vestido Infantil Floral", price:79.90, cat:"Menina", offer:true,
+      image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+      desc:"Leve e lindo para passeios." },
+    { id: uuid(), name:"Conjunto Infantil (2 peças)", price:89.90, cat:"Menino", offer:false,
+      image:"https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1200&q=80",
+      desc:"Confortável para o dia a dia." },
+    { id: uuid(), name:"Macacão Bebê", price:69.90, cat:"Bebê", offer:true,
+      image:"https://images.unsplash.com/photo-1519682577862-22b62b24e493?auto=format&fit=crop&w=1200&q=80",
+      desc:"Toque macio, ideal para recém-nascidos." },
+    { id: uuid(), name:"Laço e Tiara Infantil", price:29.90, cat:"Acessórios", offer:false,
+      image:"https://images.unsplash.com/photo-1520975681186-3a7f0a0d6f45?auto=format&fit=crop&w=1200&q=80",
+      desc:"Acessório delicado para completar o look." }
   ];
-
-  // =========================
-  // HELPERS
-  // =========================
-  const brl = (n) => n.toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
 
   function loadProducts(){
     const raw = localStorage.getItem(LS_PRODUCTS);
@@ -417,204 +360,163 @@
       return [...defaultProducts];
     }
   }
-
-  function saveProducts(products){
-    localStorage.setItem(LS_PRODUCTS, JSON.stringify(products));
-  }
-
-  function isLogged(){
-    return localStorage.getItem(LS_SESSION) === "1";
-  }
-
+  function saveProducts(p){ localStorage.setItem(LS_PRODUCTS, JSON.stringify(p)); }
+  function isLogged(){ return localStorage.getItem(LS_SESSION) === "1"; }
   function setLogged(v){
     localStorage.setItem(LS_SESSION, v ? "1" : "0");
-    updateTopbar();
-    render();
+    updateTop(); render();
   }
 
-  // =========================
-  // STATE
-  // =========================
   let products = loadProducts();
-  let query = "";
+  let q = "";
+  let cat = "Todos";
 
-  // =========================
-  // UI ELEMENTS
-  // =========================
   const grid = document.getElementById("grid");
   const count = document.getElementById("count");
-
   const btnAdmin = document.getElementById("btnAdmin");
   const btnAdd = document.getElementById("btnAdd");
   const btnLogout = document.getElementById("btnLogout");
 
   const overlay = document.getElementById("overlay");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalBody = document.getElementById("modalBody");
-  const modalFooter = document.getElementById("modalFooter");
-  const btnClose = document.getElementById("btnClose");
+  const mTitle = document.getElementById("mTitle");
+  const mBody = document.getElementById("mBody");
+  const mFoot = document.getElementById("mFoot");
+  document.getElementById("mClose").onclick = closeModal;
+  overlay.addEventListener("click",(e)=>{ if(e.target===overlay) closeModal(); });
 
-  document.getElementById("search").addEventListener("input", (e)=>{
-    query = e.target.value.trim().toLowerCase();
-    render();
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // WhatsApp floating
+  const waFloat = document.getElementById("waFloat");
+  waFloat.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent("Olá! Quero atendimento da Lore Bella Modas 😊")}`;
+
+  document.getElementById("search").addEventListener("input",(e)=>{ q = e.target.value.trim().toLowerCase(); render(); });
+  document.getElementById("btnClear").onclick = ()=>{ document.getElementById("search").value=""; q=""; render(); };
+  document.getElementById("btnAll").onclick = ()=>{ q=""; document.getElementById("search").value=""; cat="Todos"; setActiveChip(); render(); };
+
+  document.querySelectorAll("[data-cat]").forEach(ch=>{
+    ch.addEventListener("click", ()=>{
+      cat = ch.getAttribute("data-cat");
+      setActiveChip();
+      render();
+    });
   });
-  document.getElementById("btnReset").addEventListener("click", ()=>{
-    document.getElementById("search").value = "";
-    query = "";
-    render();
-  });
 
-  btnClose.addEventListener("click", closeModal);
-  overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModal(); });
+  function setActiveChip(){
+    document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    document.querySelector(`.chip[data-cat="${cat}"]`)?.classList.add("active");
+  }
 
-  btnAdmin.addEventListener("click", ()=>{
-    if(isLogged()) openAdminPanel();
-    else openLogin();
-  });
+  btnAdmin.onclick = ()=> isLogged() ? openAdminPanel() : openLogin();
+  btnAdd.onclick = ()=> openProductForm();
+  btnLogout.onclick = ()=> setLogged(false);
 
-  btnAdd.addEventListener("click", ()=> openProductForm());
-  btnLogout.addEventListener("click", ()=> setLogged(false));
-
-  function updateTopbar(){
+  function updateTop(){
     const logged = isLogged();
     btnAdd.style.display = logged ? "inline-flex" : "none";
     btnLogout.style.display = logged ? "inline-flex" : "none";
     btnAdmin.textContent = logged ? "Painel ADM" : "Área ADM";
   }
 
-  // =========================
-  // RENDER
-  // =========================
   function render(){
-    const filtered = products.filter(p =>
-      (p.name || "").toLowerCase().includes(query) ||
-      (p.desc || "").toLowerCase().includes(query)
-    );
+    const filtered = products.filter(p=>{
+      const okCat = (cat==="Todos") || (p.cat===cat);
+      const okQ = (p.name||"").toLowerCase().includes(q) || (p.desc||"").toLowerCase().includes(q) || (p.cat||"").toLowerCase().includes(q);
+      return okCat && okQ;
+    });
 
     count.textContent = `${filtered.length} itens`;
     grid.innerHTML = "";
 
     filtered.forEach(p=>{
       const card = document.createElement("article");
-      card.className = "card";
-
-      const img = p.image ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">` : "";
+      card.className = "pCard";
       card.innerHTML = `
         <div class="thumb">
-          ${img}
-          <div class="tag">Lore Bella</div>
+          ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">` : ""}
+          <div class="tag">${esc(p.cat || "Lore Bella")}</div>
+          ${p.offer ? `<div class="tag offer">Oferta</div>` : ``}
         </div>
-        <div class="cardBody">
-          <p class="name">${escapeHtml(p.name)}</p>
-          <p class="desc">${escapeHtml(p.desc || "")}</p>
+        <div class="pBody">
+          <p class="name">${esc(p.name)}</p>
+          <p class="desc">${esc(p.desc||"")}</p>
           <div class="priceRow">
-            <div class="price">${brl(Number(p.price || 0))}</div>
-            ${isLogged() ? `<button class="smallBtn" data-edit="${p.id}">Editar</button>` : `<button class="smallBtn" data-view="${p.id}">Ver</button>`}
+            <div class="price">${brl(Number(p.price||0))}</div>
+            ${isLogged()
+              ? `<button class="smallBtn" data-edit="${p.id}">Editar</button>`
+              : `<button class="smallBtn" data-buy="${p.id}">Comprar</button>`}
           </div>
         </div>
       `;
-
       grid.appendChild(card);
     });
 
-    // Bind buttons
-    grid.querySelectorAll("[data-edit]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const id = btn.getAttribute("data-edit");
-        const item = products.find(x=>x.id === id);
+    grid.querySelectorAll("[data-edit]").forEach(b=>{
+      b.onclick = ()=>{
+        const id = b.getAttribute("data-edit");
+        const item = products.find(x=>x.id===id);
         if(item) openProductForm(item);
-      });
+      };
     });
 
-    grid.querySelectorAll("[data-view]").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        const id = btn.getAttribute("data-view");
-        const item = products.find(x=>x.id === id);
-        if(item) openProductView(item);
-      });
+    grid.querySelectorAll("[data-buy]").forEach(b=>{
+      b.onclick = ()=>{
+        const id = b.getAttribute("data-buy");
+        const item = products.find(x=>x.id===id);
+        if(item) openBuy(item);
+      };
     });
   }
 
-  // =========================
-  // MODALS
-  // =========================
   function openModal(title){
-    modalTitle.textContent = title;
+    mTitle.textContent = title;
     overlay.style.display = "flex";
   }
   function closeModal(){
     overlay.style.display = "none";
-    modalBody.innerHTML = "";
-    modalFooter.innerHTML = "";
+    mBody.innerHTML = "";
+    mFoot.innerHTML = "";
   }
 
   function openLogin(){
     openModal("Login ADM • Lore Bella Modas");
-    modalBody.innerHTML = `
-      <div style="font-weight:800; color:#334155;">
-        Entre para gerenciar produtos, preços e fotos.
+    mBody.innerHTML = `
+      <div style="font-weight:850; color:#334155;">Entre para gerenciar produtos, preços e fotos.</div>
+      <div class="formRow" style="margin-top:12px;">
+        <div class="field"><label>Usuário</label><input id="u" placeholder="admin" autocomplete="username"></div>
+        <div class="field"><label>Senha</label><input id="p" placeholder="1234" type="password" autocomplete="current-password"></div>
       </div>
-      <div class="loginRow">
-        <div class="field">
-          <label>Usuário</label>
-          <input id="loginUser" placeholder="admin" autocomplete="username">
-        </div>
-        <div class="field">
-          <label>Senha</label>
-          <input id="loginPass" placeholder="1234" type="password" autocomplete="current-password">
-        </div>
-      </div>
-      <div class="status" id="loginStatus">✅ Logado com sucesso!</div>
       <div class="note">Padrão: admin / 1234 (mude no código se quiser)</div>
     `;
-    modalFooter.innerHTML = `
-      <button class="btn" id="btnCancel">Cancelar</button>
-      <button class="btn primary" id="btnLogin">Entrar</button>
-    `;
-
-    document.getElementById("btnCancel").onclick = closeModal;
-    document.getElementById("btnLogin").onclick = ()=>{
-      const u = document.getElementById("loginUser").value.trim();
-      const p = document.getElementById("loginPass").value.trim();
-      if(u === ADMIN_USER && p === ADMIN_PASS){
-        document.getElementById("loginStatus").style.display = "block";
-        setTimeout(()=>{
-          setLogged(true);
-          closeModal();
-          openAdminPanel();
-        }, 450);
-      }else{
-        alert("Usuário ou senha inválidos.");
-      }
+    mFoot.innerHTML = `<button class="btn" id="c">Cancelar</button><button class="btn primary" id="e">Entrar</button>`;
+    document.getElementById("c").onclick = closeModal;
+    document.getElementById("e").onclick = ()=>{
+      const u = document.getElementById("u").value.trim();
+      const p = document.getElementById("p").value.trim();
+      if(u===ADMIN_USER && p===ADMIN_PASS){ setLogged(true); closeModal(); openAdminPanel(); }
+      else alert("Usuário ou senha inválidos.");
     };
   }
 
   function openAdminPanel(){
     openModal("Painel ADM • Lore Bella Modas");
-    modalBody.innerHTML = `
+    mBody.innerHTML = `
       <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
         <div>
           <div style="font-weight:950; font-size:16px;">Você está como ADM ✅</div>
-          <div class="note">Use “+ Produto” no topo para cadastrar. Ou clique em “Editar” em um item.</div>
+          <div class="note" style="margin-top:6px;">Clique em “+ Produto” para cadastrar ou em “Editar” em um item.</div>
         </div>
-        <button class="btn danger" id="btnResetAll" title="Apaga todos os produtos salvos no navegador">Resetar catálogo</button>
+        <button class="btn danger" id="reset">Resetar catálogo</button>
       </div>
-      <div style="margin-top:14px; padding:14px; border-radius:16px; background:linear-gradient(135deg, rgba(255,90,165,.10), rgba(43,123,255,.10)); border:1px solid rgba(43,123,255,.12); font-weight:800;">
-        ✔ Alterar preço<br/>
-        ✔ Colocar fotos por link<br/>
-        ✔ Excluir produtos<br/>
-        ✔ Tudo salva no navegador (localStorage)
+      <div style="margin-top:12px; padding:14px; border-radius:16px; background:linear-gradient(135deg, rgba(255,79,163,.10), rgba(43,123,255,.10)); border:1px solid rgba(43,123,255,.12); font-weight:850; color:#334155;">
+        ✔ Editar preço • ✔ Trocar foto • ✔ Categoria • ✔ Marcar “Oferta” • ✔ Excluir
       </div>
     `;
-    modalFooter.innerHTML = `
-      <button class="btn" id="btnClose2">Fechar</button>
-      <button class="btn primary" id="btnNew2">+ Produto</button>
-    `;
-
-    document.getElementById("btnClose2").onclick = closeModal;
-    document.getElementById("btnNew2").onclick = ()=> { closeModal(); openProductForm(); };
-    document.getElementById("btnResetAll").onclick = ()=>{
-      if(confirm("Tem certeza? Isso vai apagar os produtos salvos e voltar ao catálogo padrão.")){
+    mFoot.innerHTML = `<button class="btn" id="x">Fechar</button><button class="btn primary" id="n">+ Produto</button>`;
+    document.getElementById("x").onclick = closeModal;
+    document.getElementById("n").onclick = ()=>{ closeModal(); openProductForm(); };
+    document.getElementById("reset").onclick = ()=>{
+      if(confirm("Apagar produtos salvos e voltar ao catálogo padrão?")){
         products = [...defaultProducts];
         saveProducts(products);
         render();
@@ -623,73 +525,79 @@
     };
   }
 
-  function openProductView(item){
-    openModal(item.name);
-    modalBody.innerHTML = `
+  function openBuy(item){
+    openModal("Comprar no WhatsApp");
+    const msg = `Olá! Tenho interesse neste produto da Lore Bella Modas:%0A%0A• ${encodeURIComponent(item.name)}%0A• ${encodeURIComponent(brl(Number(item.price||0)))}%0A• Categoria: ${encodeURIComponent(item.cat||"")}%0A%0APode me ajudar? 😊`;
+    const link = `https://wa.me/${WHATSAPP_PHONE}?text=${msg}`;
+    mBody.innerHTML = `
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start;">
-        <div style="border-radius:18px; overflow:hidden; border:1px solid rgba(31,42,55,.10); background:rgba(255,255,255,.9);">
-          <div style="height:260px; background:linear-gradient(135deg, rgba(255,90,165,.18), rgba(43,123,255,.18));">
-            ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" style="width:100%;height:100%;object-fit:cover;">` : ""}
+        <div style="border-radius:18px; overflow:hidden; border:1px solid rgba(15,23,42,.10);">
+          <div style="height:260px; background:linear-gradient(135deg, rgba(255,79,163,.18), rgba(43,123,255,.18));">
+            ${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.name)}" style="width:100%;height:100%;object-fit:cover;">` : ""}
           </div>
         </div>
         <div>
-          <div style="font-weight:950; font-size:20px; margin-bottom:6px;">${escapeHtml(item.name)}</div>
+          <div style="font-weight:950; font-size:20px; margin-bottom:6px;">${esc(item.name)}</div>
           <div style="font-weight:950; font-size:22px; margin:10px 0; background:linear-gradient(135deg,var(--pink),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;">${brl(Number(item.price||0))}</div>
-          <div style="color:var(--muted); font-weight:650; line-height:1.55;">${escapeHtml(item.desc || "")}</div>
-          <div class="note" style="margin-top:12px;">(Exemplo) Para vender online de verdade, você pode integrar WhatsApp/PIX e um carrinho depois.</div>
+          <div style="color:var(--muted); font-weight:650; line-height:1.55;">${esc(item.desc||"")}</div>
+          <div class="note" style="margin-top:12px;">Clique em “Abrir WhatsApp” para enviar a mensagem pronta.</div>
         </div>
       </div>
     `;
-    modalFooter.innerHTML = `<button class="btn" id="btnOk">Ok</button>`;
-    document.getElementById("btnOk").onclick = closeModal;
+    mFoot.innerHTML = `<button class="btn" id="ok">Fechar</button><a class="btn primary" href="${link}" target="_blank" rel="noopener" style="text-decoration:none; display:inline-flex; align-items:center;">Abrir WhatsApp</a>`;
+    document.getElementById("ok").onclick = closeModal;
   }
 
   function openProductForm(editItem=null){
     openModal(editItem ? "Editar produto" : "Adicionar produto");
-    const item = editItem ? {...editItem} : { id: crypto.randomUUID(), name:"", price:"", image:"", desc:"" };
+    const item = editItem ? {...editItem} : { id: uuid(), name:"", price:"", cat:"Menina", offer:false, image:"", desc:"" };
 
-    modalBody.innerHTML = `
-      <div class="row">
+    mBody.innerHTML = `
+      <div class="formRow">
+        <div class="field"><label>Nome</label><input id="name" value="${esc(item.name)}" placeholder="Ex: Vestido Infantil"></div>
+        <div class="field"><label>Preço (R$)</label><input id="price" value="${esc(item.price)}" placeholder="Ex: 79.90" inputmode="decimal"></div>
+      </div>
+
+      <div class="formRow" style="margin-top:12px;">
         <div class="field">
-          <label>Nome do produto</label>
-          <input id="pName" placeholder="Ex: Vestido Infantil" value="${escapeAttr(item.name)}">
+          <label>Categoria</label>
+          <input id="cat" value="${esc(item.cat)}" placeholder="Menina / Menino / Bebê / Acessórios">
         </div>
         <div class="field">
-          <label>Preço (R$)</label>
-          <input id="pPrice" placeholder="Ex: 79.90" inputmode="decimal" value="${escapeAttr(item.price)}">
+          <label>Oferta (true/false)</label>
+          <input id="offer" value="${esc(item.offer)}" placeholder="true ou false">
         </div>
       </div>
 
-      <div class="row" style="margin-top:12px;">
-        <div class="field" style="grid-column: 1 / -1;">
-          <label>Link da foto (URL)</label>
-          <input id="pImage" placeholder="https://.../foto.jpg" value="${escapeAttr(item.image)}">
-          <div class="note">Dica: use links terminando em .jpg, .png ou .webp.</div>
+      <div class="formRow" style="margin-top:12px;">
+        <div class="field" style="grid-column:1/-1;">
+          <label>Link da foto</label>
+          <input id="img" value="${esc(item.image)}" placeholder="https://.../foto.jpg">
+          <div class="note">Use link direto (.jpg/.png/.webp).</div>
         </div>
       </div>
 
-      <div class="row" style="margin-top:12px;">
-        <div class="field" style="grid-column: 1 / -1;">
+      <div class="formRow" style="margin-top:12px;">
+        <div class="field" style="grid-column:1/-1;">
           <label>Descrição</label>
-          <textarea id="pDesc" placeholder="Ex: Tecido leve, ideal para passeios.">${escapeHtml(item.desc || "")}</textarea>
+          <textarea id="desc" placeholder="Detalhes do produto...">${esc(item.desc||"")}</textarea>
         </div>
       </div>
-
-      <div class="note">Ao salvar, o catálogo atualiza na hora.</div>
+      <div class="note">Tudo fica salvo no navegador (localStorage).</div>
     `;
 
-    modalFooter.innerHTML = `
-      ${editItem ? `<button class="btn danger" id="btnDelete">Excluir</button>` : `<span></span>`}
-      <button class="btn" id="btnCancel">Cancelar</button>
-      <button class="btn primary" id="btnSave">Salvar</button>
+    mFoot.innerHTML = `
+      ${editItem ? `<button class="btn danger" id="del">Excluir</button>` : `<span></span>`}
+      <button class="btn" id="cancel">Cancelar</button>
+      <button class="btn primary" id="save">Salvar</button>
     `;
 
-    document.getElementById("btnCancel").onclick = closeModal;
+    document.getElementById("cancel").onclick = closeModal;
 
     if(editItem){
-      document.getElementById("btnDelete").onclick = ()=>{
+      document.getElementById("del").onclick = ()=>{
         if(confirm("Excluir este produto?")){
-          products = products.filter(p=>p.id !== editItem.id);
+          products = products.filter(p=>p.id!==editItem.id);
           saveProducts(products);
           render();
           closeModal();
@@ -697,23 +605,23 @@
       };
     }
 
-    document.getElementById("btnSave").onclick = ()=>{
-      const name = document.getElementById("pName").value.trim();
-      const priceRaw = document.getElementById("pPrice").value.trim().replace(",", ".");
-      const image = document.getElementById("pImage").value.trim();
-      const desc = document.getElementById("pDesc").value.trim();
+    document.getElementById("save").onclick = ()=>{
+      const name = document.getElementById("name").value.trim();
+      const priceRaw = document.getElementById("price").value.trim().replace(",", ".");
+      const catV = document.getElementById("cat").value.trim() || "Todos";
+      const offerRaw = String(document.getElementById("offer").value).trim().toLowerCase();
+      const offer = (offerRaw === "true" || offerRaw === "1" || offerRaw === "sim");
+      const image = document.getElementById("img").value.trim();
+      const desc = document.getElementById("desc").value.trim();
 
       const price = Number(priceRaw);
       if(!name) return alert("Informe o nome do produto.");
-      if(!Number.isFinite(price) || price < 0) return alert("Informe um preço válido (ex: 79.90).");
+      if(!Number.isFinite(price) || price < 0) return alert("Preço inválido (ex: 79.90).");
 
-      const newItem = { ...item, name, price, image, desc };
+      const newItem = { ...item, name, price, cat: catV, offer, image, desc };
 
-      if(editItem){
-        products = products.map(p=>p.id === editItem.id ? newItem : p);
-      }else{
-        products = [newItem, ...products];
-      }
+      if(editItem) products = products.map(p=>p.id===editItem.id ? newItem : p);
+      else products = [newItem, ...products];
 
       saveProducts(products);
       render();
@@ -721,23 +629,7 @@
     };
   }
 
-  // =========================
-  // SECURITY: escape
-  // =========================
-  function escapeHtml(str){
-    return String(str ?? "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
-  function escapeAttr(str){
-    return escapeHtml(str).replaceAll("\n"," ");
-  }
-
-  // init
-  updateTopbar();
+  updateTop();
   render();
 </script>
 </body>
